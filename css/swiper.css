@@ -1,0 +1,11 @@
+.swiper-button-next {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    color: #d9dadb;
+    opacity: .7;
+    z-index: 10;
+    font-size: 26px;
+  }
+ 

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ParkCinema</title>
+        <link href="src/input.css" rel="stylesheet" />
+        <link href="src/output.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>   
+        <link rel="stylesheet" href="css/swiper.css">
+        <link rel="stylesheet" href="css/scroll.css">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </head>
+    <body class="bg-[#373737] relative overflow-x-hidden overflow-y-auto">
+      <header class="md:absolute top-0 left-0 w-full z-[15] bg-transparent px-10 h-[85px] flex items-center justify-between">
+
+            <div class="flex items-center gap-36 max-lg:gap-20 max-md:justify-center w-full">
+                <div >
+                    <a href="#"><img src="img/logo.svg" alt="logo" class="max-w-[150px] max-h-[80px]" /></a>
+                </div>
+
+                <nav class="max-md:hidden">
+                    <ul class="flex items-center justify-center gap-[60px] max-lg:gap-[40px]">
+                        <li>
+                          <a href="#" class="text-[#d9dadb] hover:text-[#D52B1E] ">Kinoteatrlar</a>
+                        </li>
+                        <li>
+                          <a href="#" class="text-[#d9dadb] hover:text-[#D52B1E] ">Aksiyalar</a>
+                        </li>
+                        <li>
+                          <a href="#" class="text-[#d9dadb] hover:text-[#D52B1E] ">FAQ</a>
+                        </li>
+                        <li>
+                          <a href="#" class="text-[#d9dadb] hover:text-[#D52B1E] ">Əlaqə</a>
+                        </li>
+                        <li>
+                          <a href="#" class="text-[#d9dadb] hover:text-[#D52B1E] ">Profil</a>
+                        </li>
+                    </ul>         
+                </nav>
+            </div>
+
+            <div class="relative max-md:hidden">
+              <div class="flex items-center gap-2 cursor-pointer" id="menu" onclick="toggleMenu()">
+                <a href="#"><img src="img/az-flag.svg" alt="azflag" class="w-[25px] h-[25px]"></a>
+                <p class="text-white text-sm">AZN</p>
+                <i class="fa-solid fa-chevron-down fa-2xs" style="color: #fff;"></i>
+              </div>
+            
+              <ul id="allmenu" class="bg-white p-2 rounded my-2 absolute right-0 hidden shadow-lg ">
+                <li class="flex items-center gap-2 py-2 cursor-pointer">
+                  <a href="#"><img src="img/az-flag.svg" alt="azflag" class="w-[25px] h-[25px]"></a>
+                  <p class="text-black text-sm">AZN</p>
+                </li>
+                <li class="flex items-center gap-2 py-2 cursor-pointer">
+                  <a href="#"><img src="img/en-flag.svg" alt="enflag" class="w-[25px] h-[25px]"></a>
+                  <p class="text-black text-sm">EN</p>
+                </li>
+                <li class="flex items-center gap-2 py-2 cursor-pointer">
+                  <a href="#"><img src="img/ru-flag.svg" alt="ruflag" class="w-[25px] h-[25px]"></a>
+                  <p class="text-black text-sm">RU</p>
+                </li>
+              </ul>
+            </div>
+
+         
+        </header>
+        <section class="relative z-0 hidden md:block">
+                  <div class="swiper mySwiper h-screen">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide relative">
+                        <img src="img/minecraft__sayt_banner.webp" class="w-full h-full object-cover" />
+                        <img src="img/overlay.webp" class="absolute top-0 left-0 w-full h-full pointer-events-none" />
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/belkede_sayt_banner.webp" class="w-full h-full object-cover" />
+                        <img src="img/overlay.webp" class="absolute top-0 left-0 w-full h-full" alt="overlay" />
+
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/wolt_post_sayt_banner.webp" class="w-full h-full object-cover" />
+                        <img src="img/overlay.webp" class="absolute top-0 left-0 w-full h-full" alt="overlay" />
+                      </div>
+                    </div>
+                    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 h-full w-28 bg-[url('../img/nav-bg.svg')] bg-no-repeat bg-contain bg-center opacity-70 z-30 pointer-events-none max-sm:w-16 max-xs:w-24"></div>
+                    <div class="swiper-button-next desktop-next absolute right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center"></div>
+                  </div>
+        </section>
+        
+
+        <section class="md:hidden px-4 py-6">
+          <div class="swiper mobileSwiper rounded-2xl overflow-hidden relative bg-[#252525]">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="img/belkede_sayt_banner.webp" class="w-full h-auto rounded-2xl" />
+                <img src="img/overlay.webp" class="absolute top-0 left-0 w-full h-full" alt="overlay" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/minecraft__sayt_banner.webp" class="w-full h-auto rounded-2xl" />
+                <img src="img/overlay.webp" class="absolute top-0 left-0 w-full h-full" alt="overlay" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/wolt_post_sayt_banner.webp" class="w-full h-auto rounded-2xl" />
+                <img src="img/overlay.webp" class="absolute top-0 left-0 w-full h-full" alt="overlay" />
+              </div>
+            </div>
+        
+            <div class="swiper-button-next mobile-next right-2"></div>
+          </div>
+        </section>
+
+        <main>
+          <div id="list">
+            <ul class="flex  items-center justify-center md:justify-between gap-4 text-center my-8 mb-10">
+              <li class="text-[#D9DADB] text-[30px] max-md:text-[26px] max-sm:text-[24px] font-bold w-full flex items-center justify-center [text-shadow:0px_0px_14px_#fff]">Siyahı</li>
+              <li class="text-[#D9DADB] text-[30px] max-md:text-[26px] max-sm:text-[24px] font-bold w-full flex items-center justify-center">Treylerlər</li>
+            </ul>
+            
+          
+            <div class="flex gap-4 mx-24">
+              <p class="underline underline-offset-1 text-[#D9DADB]  font-medium cursor-pointer">Hamısı</p>
+              <p class="text-[#D9DADB]  font-medium opacity-55 cursor-pointer">Tezliklə</p> 
+              <p class="text-[#D9DADB]  font-medium opacity-55 cursor-pointer">Cədvəl</p> 
+            </div>
+          </div>
+
+          <ul id="catalogy" class="grid gap-6 
+              grid-cols-1 
+              sm:grid-cols-2 
+              md:grid-cols-3 
+              xl:grid-cols-4 
+              2xl:grid-cols-5 
+              px-4 md:px-12 lg:px-16 xl:px-24 py-8">
+          </ul>
+
+        </main>
+
+
+        <footer class="py-6 bg-[#86312A] text-white text-sm">
+          <div class="container mx-auto px-4 md:px-6">
+        
+            <div class="flex flex-col md:grid md:grid-cols-18 gap-6 md:gap-4">
+              
+              <div class="flex md:block justify-center md:justify-center md:col-span-3">
+                <img src="img/logo.svg" alt="logo" class="w-24 md:w-32" />
+              </div>
+        
+              <div class="md:col-span-3">
+                <ul class="flex flex-col items-center md:items-start space-y-4">
+                  <li><a href="#">Kinoteatrlar</a></li>
+                  <li><a href="#">Aksiyalar</a></li>
+                  <li><a href="#">FAQ</a></li>
+                </ul>
+              </div>
+        
+              <div class="md:col-span-3">
+                <ul class="flex flex-col items-center md:items-start space-y-4">
+                  <li><a href="#">Profil</a></li>
+                  <li><a href="#">Əlaqə</a></li>
+                  <li><a href="#">Hüquqi Şərtlər</a></li>
+                </ul>
+              </div>
+        
+              <div class="md:col-span-4">
+                <ul class="flex flex-col items-center md:items-start space-y-4">
+                  <li><span>Bizi izləyin</span></li>
+                  <li>
+                    <div class="flex gap-2">
+                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-square-instagram" style="color:#86312A;"></i></button></a>
+                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-facebook" style="color:#86312A;"></i></button></a>
+                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-youtube" style="color:#86312A;"></i></button></a>
+                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-telegram" style="color:#86312A;"></i></button></a>
+                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-tiktok" style="color:#86312A;"></i></button></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+        
+              <div class="hidden md:flex justify-end md:col-span-2">
+                <img src="img/Visa.svg" alt="visa" class="h-8" />
+              </div>
+            </div>
+        
+            <div class="hidden md:flex justify-between pt-6">
+              <p>© Park Cinema, 2025</p>
+              <p>ESAM Innovations</p>
+            </div>
+          </div>
+        </footer>
+        
+        
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  
+        <script src="js/swiper.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/catalogy.js"></script>
+        
+    </body>
+</html>
