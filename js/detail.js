@@ -54,3 +54,20 @@ fetch("https://data-woad-kappa.vercel.app/landing")
       </div>
     `;
   });
+
+
+
+  function applyButtonRedirect() {
+    const buttons = document.querySelectorAll("button");
+  
+    buttons.forEach(btn => {
+      if (btn.textContent.trim() === "Bilet Al") {
+        btn.onclick = function () {
+          location.href = `hall.htm?id=${id}`;
+        };
+      }
+    });
+  }
+  
+  setTimeout(applyButtonRedirect, 500);
+  

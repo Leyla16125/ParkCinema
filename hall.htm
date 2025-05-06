@@ -64,74 +64,62 @@
                 </li>
               </ul>
             </div>
-        </header>
+      </header>
         
+      <main>
+        <div class="w-full px-5">
+          <div class="max-w-full h-[180px] sm:h-[220px] md:h-[280px] lg:h-[300px]
+                      bg-[url('img/movie-herobg.svg')] bg-cover bg-center 
+                      rounded-xl overflow-hidden relative 
+                      before:content-[''] before:absolute before:inset-0 
+                      before:bg-[#161616d6] before:z-0 flex items-center">
+                      
+            <div id="choosenMovie" class="relative z-10 flex gap-4 p-4 w-full max-w-5xl mx-auto text-white">
+              
+              
         
+            </div>
+          </div>
+        </div>
+        
+        <section class="my-5 mt-12">
+          <div class="bg-[#4D4D4D] rounded-xl max-lg:py-5 lg:py-10 ">
+            <div class="w-full max-lg:px-3 lg:px-28 mx-auto mt-8 h-max flex max-lg:p-3 lg:p-8">
+              <div id="grid" class=" w-full space-y-1 min-h-screen md:w-full max-md:px-4 py-2 overflow-auto"></div>
+            </div>
+
+            <div class="w-full flex items-center justify-center flex-col text-[#d9dadb] mt-6 ">
+              <span class="text-2xl">Ekran</span>
+              <img alt="screen"  width="400" height="400" class="md:w-3/4 object-cover" style="color:transparent" src="img/screen.svg">
+            </div>
+
+
+          </div>
+
+          <div class="sm:flex justify-between gap-10 items-center-safe">
+            <div class="font-semibold text-[#D9DADB] flex">
+              <div class="font-semibold text-[#D9DADB] flex">
+                <p>Ümumi: </p><span>0 AZN</span>
+              </div>
+              <div class="flex text-[#D9DADB] flex-wrap items-center gap-4 ">
+                <span></span>
+              </div>
+  
+            </div>
+            
+
+              <div id="payButton" class="w-max h-max max-md:w-full">
+                
+              </div>
+          </div>
+          
+        </section>
+        
+      </main>
 
       
 
-        <main>
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-8 py-12 items-start">
-                <div id="aboutMovie" class="order-2 md:order-1 w-full h-full"></div>
-
-                <div id="ytLink" class="order-1 md:order-2 w-full h-full"></div>
-            </section>
-
-            <section>
-              <div class="w-full flex justify-between items-center gap-6 mt-6 mb-4 max-md:flex-col px-4 md:px-12 lg:px-16 xl:px-24">
-                <div class="swiper dateSwiper w-full max-w-[60%]">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide !w-auto">
-                      <button class="flex flex-col items-center justify-between w-[60px] h-[90px] rounded-[30px] bg-[#D9DADB] mx-2 py-2">
-                        <span class="text-[14px] text-[#606060] leading-none">May</span>
-                        <span class="w-[40px] h-[40px] rounded-full bg-[#4a4a4a] text-white text-sm flex items-center justify-center">3</span>
-                      </button>
-                    </div>
-                    <div class="swiper-slide !w-auto">
-                      <button class="flex flex-col items-center justify-between w-[60px] h-[90px] rounded-[30px] bg-[#4a4a4a] mx-2 py-2">
-                        <span class="text-[14px] text-[#D9DADB] leading-none">May</span>
-                        <span class="w-[40px] h-[40px] rounded-full bg-[#606060] text-white text-sm flex items-center justify-center">4</span>
-                      </button>
-                    </div>
-                    <div class="swiper-slide !w-auto">
-                      <button class="flex flex-col items-center justify-between w-[60px] h-[90px] rounded-[30px] bg-[#4a4a4a] mx-2 py-2">
-                        <span class="text-[14px] text-[#D9DADB] leading-none">May</span>
-                        <span class="w-[40px] h-[40px] rounded-full bg-[#606060] text-white text-sm flex items-center justify-center">5</span>
-                      </button>
-                    </div>
-                    <div class="swiper-slide !w-auto">
-                      <button class="flex flex-col items-center justify-between w-[60px] h-[90px] rounded-[30px] bg-[#4a4a4a] mx-2 py-2">
-                        <span class="text-[14px] text-[#D9DADB] leading-none">May</span>
-                        <span class="w-[40px] h-[40px] rounded-full bg-[#606060] text-white text-sm flex items-center justify-center">6</span>
-                      </button>
-                    </div>
-                  </div>
-              
-                  <!-- <div class="swiper-button-prev text-white  md:!hidden"></div>
-                  <div class="swiper-button-next text-white  md:!hidden"></div> -->
-                </div>
-              
-                <div class="flex flex-col items-center text-white text-sm font-light w-full">
-                  <label class="italic mb-1 font-bold">Kinoteatr</label>
-                  <select class="w-full bg-transparent border-b border-white focus:outline-none text-center"></select>
-                </div>
-              
-                <div class="flex flex-col items-center text-white text-sm font-light w-full">
-                  <label class="italic mb-1 font-bold">Dil</label>
-                  <select class="w-full bg-transparent border-b border-white focus:outline-none text-center"></select>
-                </div>
-              </div>
-              
-            </section>
-
-            <div class="w-full px-2 sm:px-4 lg:px-16 xl:px-24">
-              <div class="overflow-x-hidden">
-                <table class="w-full table-auto text-[10px] sm:text-xs md:text-sm text-white">
-                  <tbody id="sessionTableBody"></tbody>
-                </table>
-              </div>
-            </div>           
-        </main>
+      
 
 
         <footer class="py-6 bg-[#86312A] text-white text-sm">
@@ -188,27 +176,8 @@
         
         
         
-        <script src="js/detail.js"></script>
         <script src="js/script.js"></script>
+        <script src="js/hall.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-        <script>
-          const dateSwiper = new Swiper('.dateSwiper', {
-            slidesPerView: 'auto',
-            spaceBetween: 10,
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-              768: {
-                navigation: false,
-              }
-            }
-          });
-        </script>
-        
-        <script src="js/table.js"></script>
-
     </body>
 </html>
