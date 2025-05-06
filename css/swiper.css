@@ -1,11 +1,23 @@
 .swiper-button-next {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    right: 20px;
-    color: #d9dadb;
-    opacity: .7;
-    z-index: 10;
-    font-size: 26px;
+  width: 56px;
+  height: 56px;
+  color: #d9dadb;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+.swiper-button-next::after {
+  font-size: 26px;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next {
+    width: 28px;
+    height: 28px;
   }
- 
+
+  .swiper-button-next::after {
+    font-size: 14px;
+  }
+}
+
