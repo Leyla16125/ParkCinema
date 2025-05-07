@@ -11,3 +11,13 @@
     display: none; 
   }
   
+
+  #gridWrapper {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+  }
+  #grid {
+    display: inline-block;
+    transform-origin: top left;
+  }
+  

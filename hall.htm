@@ -13,7 +13,7 @@
         <link rel="icon" href="https://www.parkcinema.az/favicon.ico" type="image/x-icon">
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
-    <body class="bg-[#373737]">
+    <body class="bg-[#373737]"  onclick="closePopup(event)">
       <header class="w-full  px-10 h-[85px] flex items-center justify-between">
 
             <div class="flex items-center gap-36 max-lg:gap-20 max-md:justify-center w-full">
@@ -74,44 +74,75 @@
                       before:content-[''] before:absolute before:inset-0 
                       before:bg-[#161616d6] before:z-0 flex items-center">
                       
-            <div id="choosenMovie" class="relative z-10 flex gap-4 p-4 w-full max-w-5xl mx-auto text-white">
-              
-              
-        
-            </div>
+                      <div id="choosenMovie" class="relative z-10 flex gap-4 p-4 w-full text-white"></div>
           </div>
-        </div>
-        
-        <section class="my-5 mt-12">
-          <div class="bg-[#4D4D4D] rounded-xl max-lg:py-5 lg:py-10 ">
-            <div class="w-full max-lg:px-3 lg:px-28 mx-auto mt-8 h-max flex max-lg:p-3 lg:p-8">
-              <div id="grid" class=" w-full space-y-1 min-h-screen md:w-full max-md:px-4 py-2 overflow-auto"></div>
-            </div>
 
-            <div class="w-full flex items-center justify-center flex-col text-[#d9dadb] mt-6 ">
+          <div class="md:flex justify-between items-center mt-5">
+            <ul class="flex items-center max-md:gap-2 max-md:flex-wrap max-md:justify-center md:gap-8">
+              <li class="flex text-[#D9DADB] items-center gap-2 ">
+                <div class="w-[18px] h-[18px] rounded-full bg-[#D9DADB]">
+
+                </div>Mövcuddur
+              </li>
+              <li class="flex text-[#D9DADB] items-center gap-2 ">
+                <div class="w-[18px] h-[18px] rounded-full bg-[#000000]">
+
+                </div>Tutulmuş
+              </li>
+              <li class="flex text-[#D9DADB] items-center gap-2">
+                  <div class="w-[18px] h-[18px] rounded-full bg-[#D52B1E]">
+
+                  </div>Seçilmiş</li>
+              </ul>
+                <ul class="flex items-center max-md:gap-2 md:gap-8 max-md:flex-wrap max-md:justify-center max-md:text-[14px] max-md:mt-2 text-[#D9DADB]">
+                  <li class="max-md:min-w-max">Ailə :<strong class="font-semibold">5 AZN</strong><br>Böyük :<strong class="font-semibold">7 AZN</strong></li>
+                </ul>
+              </div>
+        
+        <section class="my-5 mt-12" >
+          <div class="relative bg-[#4D4D4D] rounded-xl max-lg:py-5 lg:py-10">
+
+            <div class="absolute right-5 top-5 z-50 flex flex-col gap-2">
+              <button onclick="zoomIn()" class="w-10 h-10 bg-gray-200 rounded-md text-black text-xl font-bold">+</button>
+              <button onclick="zoomOut()" class="w-10 h-10 bg-gray-200 rounded-md text-black text-xl font-bold">−</button>
+            </div>
+          
+            <div id="gridWrapper" class="overflow-auto max-h-[560px] px-4" style="max-width: 100%; overflow-x: auto;">
+              <div id="grid" class="w-max h-max origin-top scale-100 transition-transform duration-300 space-y-1"></div>
+            </div>
+          
+            <div class="w-full flex items-center justify-center flex-col text-[#d9dadb] mt-6">
               <span class="text-2xl">Ekran</span>
-              <img alt="screen"  width="400" height="400" class="md:w-3/4 object-cover" style="color:transparent" src="img/screen.svg">
+              <img alt="screen" width="400" height="400" class="md:w-3/4 object-cover" style="color:transparent" src="img/screen.svg" />
             </div>
-
-
           </div>
+          
 
-          <div class="sm:flex justify-between gap-10 items-center-safe">
+          <div class="sm:flex justify-between gap-10 items-center-safe mt-10">
             <div class="font-semibold text-[#D9DADB] flex">
               <div class="font-semibold text-[#D9DADB] flex">
-                <p>Ümumi: </p><span>0 AZN</span>
+                <p>Ümumi:</p><span id="price">0 AZN</span>
               </div>
-              <div class="flex text-[#D9DADB] flex-wrap items-center gap-4 ">
-                <span></span>
-              </div>
-  
             </div>
             
 
-              <div id="payButton" class="w-max h-max max-md:w-full">
-                
-              </div>
+            <div id="payButton" class="w-max h-max max-md:w-full">
+              <button onclick="handlePaymentClick()" class="flex items-center justify-center bg-[#D52B1E] rounded-[20px] sm:w-[250px] h-[36px] text-[#D9DADB] max-md:w-full max-w-container max-md:mx-auto max-sm:leading-3 cursor-pointer">
+                Bilet Al
+              </button>
+            </div>
+          <div id="test" class="hidden fixed bottom-4 right-4 bg-[#444] text-red-400 border-l-4 border-red-500 px-4 py-3 rounded-md shadow-lg w-[270px] z-[9999] flex items-center gap-2">
+            <span class="text-red-400 text-lg">❗</span>
+            <span id="testText" class="text-sm font-medium">Zəhmət olmasa oturacaq seçin</span>
           </div>
+
+            
+          </div>
+          <div id="popup" class="absolute bg-white text-black text-sm rounded-xl shadow-md px-4 py-2 hidden z-50 flex flex-col gap-2">
+            <button onclick="selectType('Ailə')" class="cursor-pointer hover:font-semibold">Ailə</button>
+            <button onclick="selectType('Böyük')" class="cursor-pointer hover:font-semibold">Böyük</button>
+          </div>
+          
           
         </section>
         
@@ -122,60 +153,60 @@
       
 
 
-        <footer class="py-6 bg-[#86312A] text-white text-sm">
-          <div class="container mx-auto px-4 md:px-6">
-        
-            <div class="flex flex-col md:grid md:grid-cols-18 gap-6 md:gap-4">
-              
-              <div class="flex md:block justify-center md:justify-center md:col-span-3">
-                <img src="img/logo.svg" alt="logo" class="w-24 md:w-32" />
-              </div>
-        
-              <div class="md:col-span-3">
-                <ul class="flex flex-col items-center md:items-start space-y-4">
-                  <li><a href="#">Kinoteatrlar</a></li>
-                  <li><a href="#">Aksiyalar</a></li>
-                  <li><a href="#">FAQ</a></li>
-                </ul>
-              </div>
-        
-              <div class="md:col-span-3">
-                <ul class="flex flex-col items-center md:items-start space-y-4">
-                  <li><a href="#">Profil</a></li>
-                  <li><a href="#">Əlaqə</a></li>
-                  <li><a href="#">Hüquqi Şərtlər</a></li>
-                </ul>
-              </div>
-        
-              <div class="md:col-span-4">
-                <ul class="flex flex-col items-center md:items-start space-y-4">
-                  <li><span>Bizi izləyin</span></li>
-                  <li>
-                    <div class="flex gap-2">
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-square-instagram" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-facebook" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-youtube" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-telegram" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-tiktok" style="color:#86312A;"></i></button></a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-        
-              <div class="hidden md:flex justify-end md:col-span-2">
-                <img src="img/Visa.svg" alt="visa" class="h-8" />
-              </div>
+      <footer class="py-6 bg-[#86312A] text-white text-sm">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="flex flex-col items-center md:grid md:grid-cols-18 gap-6 md:gap-4">
+            
+            <div class="flex justify-center md:block md:justify-center md:col-span-3">
+              <img src="img/logo.svg" alt="logo" class="w-24 md:w-32" />
             </div>
-        
-            <div class="hidden md:flex justify-between pt-6">
-              <p>© Park Cinema, 2025</p>
-              <p>ESAM Innovations</p>
+      
+            <div class="md:col-span-3">
+              <ul class="flex flex-col items-center md:items-start space-y-4">
+                <li><a href="#">Kinoteatrlar</a></li>
+                <li><a href="#">Aksiyalar</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+      
+            <div class="md:col-span-3">
+              <ul class="flex flex-col items-center md:items-start space-y-4">
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Əlaqə</a></li>
+                <li><a href="#">Hüquqi Şərtlər</a></li>
+              </ul>
+            </div>
+      
+            <div class="md:col-span-4">
+              <ul class="flex flex-col items-center md:items-start space-y-4">
+                <li><span>Bizi izləyin</span></li>
+                <li>
+                  <div class="flex gap-2">
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-square-instagram" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-facebook" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-youtube" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-telegram" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-tiktok" style="color:#86312A;"></i></button></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+      
+            <div class="flex justify-center md:justify-end md:col-span-3">
+              <img src="img/Visa.svg" alt="visa" class="h-8" />
             </div>
           </div>
-        </footer>
+      
+          <div class="flex flex-col items-center md:flex-row md:justify-between pt-6 text-center md:text-left">
+            <p>© Park Cinema, 2025</p>
+            <p>ESAM Innovations</p>
+          </div>
+        </div>
+      </footer>
+      
         
         
-        
+        <script src="js/toast.js"></script>
         <script src="js/script.js"></script>
         <script src="js/hall.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

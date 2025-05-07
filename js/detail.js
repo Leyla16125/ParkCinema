@@ -68,6 +68,5 @@ fetch("https://data-woad-kappa.vercel.app/landing")
       }
     });
   }
-  
   setTimeout(applyButtonRedirect, 500);
   

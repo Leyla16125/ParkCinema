@@ -78,100 +78,113 @@
         </div>
         
 
-        <div class="flex justify-between items-center">
-          <div class=" text-white  flex justify-center pt-4 relative font-sans m-10">
-            <div class="w-full max-w-md space-y-6">
+        <div class="w-full px-6 md:px-12 lg:px-24 py-10">
+          <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+        
+            <div class="w-full lg:w-1/2 text-white font-sans space-y-6">
               <div>
                 <label for="email" class="block text-sm mb-1">Email</label>
-                <input id="email" type="email" class="w-full border-b border-gray-500 bg-transparent py-2 " />
+                <input id="email" type="email" class="w-full border-b border-gray-500 bg-transparent py-2 focus:outline-none" />
               </div>
-          
+        
               <div>
                 <label for="phone" class="block text-sm mb-1">Telefon</label>
                 <div class="flex items-center border-b border-gray-500 py-2">
                   <span class="mr-2 text-white font-medium">+994</span>
-                  <input id="phone" type="tel" placeholder="51 511 11 11" class="bg-transparent  w-full text-gray-300" />
+                  <input id="phone" type="tel" placeholder="51 511 11 11" class="bg-transparent w-full text-gray-300 focus:outline-none" />
                 </div>
               </div>
-          
+        
               <div class="flex items-center space-x-2">
                 <input id="terms" type="checkbox" class="accent-white w-4 h-4" />
                 <label for="terms" class="text-sm">Mən <a href="#" class="underline text-white font-medium">Qaydalar və şərtlər</a> oxudum və razıyam.</label>
               </div>
-          
-              <button onclick="validateForm()" id="submitBtn" class="bg-[#B32A1D] text-white font-semibold px-6 py-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed">
+        
+              <button onclick="validateForm()" id="submitBtn"
+                class="bg-[#B32A1D] cursor-pointer text-white font-semibold px-6 py-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed">
                 Ödənişə keç
               </button>
             </div>
-          
-            <div id="toast" class="cursor-pointer hidden fixed bottom-4 right-4 bg-[#444] border-l-4 border-red-500 text-red-400 px-4 py-3 rounded-md flex items-center gap-2 shadow-lg w-[270px]">
+            <div id="toast" class="hidden fixed bottom-4 right-4 bg-[#444] text-red-400 border-l-4 border-red-500 px-4 py-3 rounded-md shadow-lg w-[270px] z-[9999] flex items-center gap-2">
               <span class="text-red-400 text-lg">❗</span>
-              <span id="toastText" class="text-sm font-medium">Xəta mesajı</span>
+              <span id="toastText" class="text-sm font-medium">Xəbərdarlıq</span>
             </div>
-              
+
+            <div id="summaryBox"
+              class="w-full lg:w-[400px] bg-[#444] text-white rounded-xl p-6 shadow-md font-sans text-sm space-y-2">
+              <p class="text-lg font-semibold" id="movieTitle">Filmin Adı</p>
+              <p id="movieTheatre">Kinoteatr</p>
+              <p id="movieDateTime">Tarix və saat</p>
+              <p id="movieHall">Zal</p>
+              <div id="seatList" class="text-sm text-gray-200"></div>
+              <p class="mt-4 font-bold text-base">Ümumi: <span id="totalPrice">0 AZN</span></p>
+            </div>
           </div>
         </div>
+        
+        
         
       </main>
       
 
 
       <footer class="py-6 bg-[#86312A] text-white text-sm">
-          <div class="container mx-auto px-4 md:px-6">
-        
-            <div class="flex flex-col md:grid md:grid-cols-18 gap-6 md:gap-4">
-              
-              <div class="flex md:block justify-center md:justify-center md:col-span-3">
-                <img src="img/logo.svg" alt="logo" class="w-24 md:w-32" />
-              </div>
-        
-              <div class="md:col-span-3">
-                <ul class="flex flex-col items-center md:items-start space-y-4">
-                  <li><a href="#">Kinoteatrlar</a></li>
-                  <li><a href="#">Aksiyalar</a></li>
-                  <li><a href="#">FAQ</a></li>
-                </ul>
-              </div>
-        
-              <div class="md:col-span-3">
-                <ul class="flex flex-col items-center md:items-start space-y-4">
-                  <li><a href="#">Profil</a></li>
-                  <li><a href="#">Əlaqə</a></li>
-                  <li><a href="#">Hüquqi Şərtlər</a></li>
-                </ul>
-              </div>
-        
-              <div class="md:col-span-4">
-                <ul class="flex flex-col items-center md:items-start space-y-4">
-                  <li><span>Bizi izləyin</span></li>
-                  <li>
-                    <div class="flex gap-2">
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-square-instagram" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-facebook" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-youtube" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-telegram" style="color:#86312A;"></i></button></a>
-                      <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-tiktok" style="color:#86312A;"></i></button></a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-        
-              <div class="hidden md:flex justify-end md:col-span-2">
-                <img src="img/Visa.svg" alt="visa" class="h-8" />
-              </div>
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="flex flex-col items-center md:grid md:grid-cols-18 gap-6 md:gap-4">
+            
+            <div class="flex justify-center md:block md:justify-center md:col-span-3">
+              <img src="img/logo.svg" alt="logo" class="w-24 md:w-32" />
             </div>
-        
-            <div class="hidden md:flex justify-between pt-6">
-              <p>© Park Cinema, 2025</p>
-              <p>ESAM Innovations</p>
+      
+            <div class="md:col-span-3">
+              <ul class="flex flex-col items-center md:items-start space-y-4">
+                <li><a href="#">Kinoteatrlar</a></li>
+                <li><a href="#">Aksiyalar</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+      
+            <div class="md:col-span-3">
+              <ul class="flex flex-col items-center md:items-start space-y-4">
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Əlaqə</a></li>
+                <li><a href="#">Hüquqi Şərtlər</a></li>
+              </ul>
+            </div>
+      
+            <div class="md:col-span-4">
+              <ul class="flex flex-col items-center md:items-start space-y-4">
+                <li><span>Bizi izləyin</span></li>
+                <li>
+                  <div class="flex gap-2">
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-square-instagram" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-facebook" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-youtube" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-telegram" style="color:#86312A;"></i></button></a>
+                    <a href="#"><button class="bg-white p-2 rounded-full"><i class="fa-brands fa-tiktok" style="color:#86312A;"></i></button></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+      
+            <div class="flex justify-center md:justify-end md:col-span-3">
+              <img src="img/Visa.svg" alt="visa" class="h-8" />
             </div>
           </div>
+      
+          <div class="flex flex-col items-center md:flex-row md:justify-between pt-6 text-center md:text-left">
+            <p>© Park Cinema, 2025</p>
+            <p>ESAM Innovations</p>
+          </div>
+        </div>
       </footer>
+      
         
         
         
         <script src="js/pay.js"></script>
-        <script src="js/hall.js"></script>
+        <script src="js/toast.js"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </body>
 </html>

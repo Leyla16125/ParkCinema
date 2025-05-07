@@ -20,14 +20,20 @@ const duration = 180;
       }
     }, 100); 
     setTimeout(() => {
-      if (window.location.pathname.endsWith('index.htm')) {
-        window.location.reload();
+      if (location.pathname.endsWith('index.htm')) {
+        location.reload();
       } else {
-        window.location.href = 'index.htm';
+        location.href = 'index.htm';
       }
     }, getMillisecondsUntilMidnight());
     
-
+    function getMillisecondsUntilMidnight() {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(24, 0, 0, 0); 
+      return midnight - now;
+    }
+    
     function showToast(message) {
       const toast = document.getElementById("toast");
       const toastText = document.getElementById("toastText");
@@ -61,3 +67,30 @@ const duration = 180;
 
       alert("Form uğurla göndərildi!");
     }
+    const id = new URLSearchParams(location.search).get("id");
+
+fetch("https://data-woad-kappa.vercel.app/landing")
+  .then(res => res.json())
+  .then(data => {
+    const movie = data.find(item => item.id === id);
+    if (!movie) return;
+
+    const summaryBox = document.getElementById("summaryBox");
+    summaryBox.innerHTML = `
+      <p class="text-lg font-semibold">${movie.name}</p>
+      <p>Metro Park</p>
+      <p>07.05.2025 09:10</p>
+      <p>Zal: 6</p>
+      <p class="mt-4 font-bold">Ümumi: <span id="totalPrice">0 AZN</span></p>
+    `;
+    const savedPrice = localStorage.getItem("totalPrice");
+if (savedPrice) {
+  document.getElementById("totalPrice").innerText = savedPrice;
+}
+
+  });
+  const savedPrice = localStorage.getItem("totalPrice");
+  if (savedPrice) {
+    document.getElementById("totalPrice").innerText = savedPrice;
+  }
+  
